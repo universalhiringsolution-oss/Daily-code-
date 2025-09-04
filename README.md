@@ -11,6 +11,72 @@
 
 
 
+
+**04-09-2025**
+import { useState } from 'react'
+import AddUser from "./AddUser";
+import Display from "./DisplayUser";
+
+
+function App() {
+    const [user, setUser] = useState('')
+
+    return (
+
+        <>
+            <h1> Lift Up Data </h1>
+
+            < AddUser setUser={setUser}/>
+            < Display user={user} />
+
+        </>
+
+    )
+}
+
+
+
+
+
+export default App;
+
+
+
+
+function AddUser({setUser}) {
+
+
+    return (
+        <>
+            <h1> Add user</h1>
+            <input type="text" onChange={(event)=>setUser(event.target.value)} placeholder='add user name' />
+            <br />
+            <button> Submit </button>
+            <hr />
+        </>
+    )
+}
+
+export default AddUser;
+
+
+
+function DisplayUser({ user }) {
+    return (
+        <>
+            <h1> {user}</h1>
+        </>
+    )
+}
+
+export default DisplayUser
+
+
+
+
+
+
+
 **03-09-2025**
 
 import { useState } from 'react'
