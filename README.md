@@ -1,21 +1,78 @@
 # Daily-code-
 
 
+**05-09-2025**
 
 
 
+import { useState } from "react";
+
+export default function App() {
+    const [data, setData] = useState([
+        'anil', 'sam', 'peter'
+    ])
+
+    const [dataDetails, setDataDetails] = useState([
+        {
+            name: 'anil', age: '12'
+        },
+        {
+            name: 'Bruce', age: '22'
+        },
+        {
+            name: 'Carter', age: '19'
+        }
+    ])
+
+    const handleUser = (name) => {
+
+        data[data.length - 1] = name;
+        console.log(data);
+        setData([...data])
+
+    }
+
+
+    const handleAge = (age) => {
+
+        dataDetails[dataDetails.length - 1].age = age;
+        console.log(dataDetails);
+        setDataDetails([...dataDetails])
+
+    }
+
+
+    return (
+
+        <>
+
+            <h1>Updating Array in State </h1>
+            <input type="text" placeholder='enter last name' onChange={(e) => handleUser(e.target.value)} />
+            {
+                data.map((item, index) => (
+                    <h3 key={index}>{item}</h3>
+                ))
+
+            }
+
+            <hr />
+
+            <input type="text" placeholder='enter last user age' onChange={(e) => handleAge(e.target.value)} />
+
+            {
+                dataDetails.map((item) => (
+                    <h4>{item.name},{item.age}</h4>
+                ))
+            }
 
 
 
+        </>
+
+    )
 
 
-
-
-
-
-
-
-
+}
 
 
 
