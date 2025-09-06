@@ -1,6 +1,80 @@
 # Daily-code-
 
 
+**06-09-2025**
+
+
+import { useActionState } from 'react'
+
+
+
+export default function App() {
+
+    const handleSubmit = async (previousData, formData) => {
+        let name = formData.get('name');
+        let password = formData.get('password');
+
+        console.log('handleSubmit called', name, password)
+        await new Promise(res => setTimeout(res, 2000))
+        if (name && password) {
+            return { message: 'data submitted ', name, password };
+        } else {
+            return { error: 'failed to submit. enter proper data ' };
+        }
+    }
+    const [data, action, pending] = useActionState(handleSubmit, undefined)
+    console.log(data);
+
+    return (
+
+        <>
+
+            <h1> useActionState hook in React Js </h1>
+            <form action={action}>
+                <input defaultValue={data?.name} type="text" placeholder='enter Name' name='name' />
+                <br /> <br />
+
+                <input defaultValue={data?.password} type="Password" placeholder='enter password' name='password' />
+                <br /> <br />
+                <button disabled={pending}> Submit Button </button>
+                <br />
+
+                {
+                    data?.error && <span style={{ color: 'red' }}>{data?.error}</span>
+                }
+
+                {
+                    data?.message && <span style={{ color: "green" }}>{data?.message}</span>
+                }
+
+                <h3> Name: {data?.name} </h3>
+                <h3>Password: {data?.password}</h3>
+
+
+            </form>
+
+
+        </>
+    )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **05-09-2025**
 
 
