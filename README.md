@@ -1,6 +1,114 @@
 # Daily-code-
 
 
+
+
+
+
+
+
+**05-09-2025**
+
+
+
+import { useId } from 'react'
+
+export default function App() {
+
+    return (
+        <>
+
+            <UserForm />
+
+
+        </>
+    )
+
+}
+
+
+function UserForm() {
+
+    const user = useId();
+
+
+    return (
+        <>
+            <form action="">
+                <label htmlFor={user + "name"}> Enter User Name</label>
+                <input id={user + "name"} type="text" placeholder='enter name' />
+
+            </form>
+            <br />
+            <form action="">
+                <label htmlFor={user + "Password"}> Enter User Password</label>
+                <input id={user + "Password"} type="text" placeholder='enter password' />
+
+            </form>
+
+            <br />
+            <form action="">
+                <label htmlFor={user + "Password"}> Enter User Skills</label>
+                <input id={user + "Password"} type="text" placeholder='enter skill' />
+
+            </form>
+            <br />
+            <form action="">
+
+                <input id={user + "terms"} type="checkbox" placeholder='enter Terms' />
+                <label htmlFor={user + "terms"}> Enter User terms </label>
+
+            </form>
+
+            <button> Submit </button>
+            <hr />
+
+            <form action="">
+                <label htmlFor={user + "name"}> Enter User Name</label>
+                <input id={user + "name"} type="text" placeholder='enter name' />
+
+            </form>
+            <br />
+            <form action="">
+                <label htmlFor={user + "Password"}> Enter User Password</label>
+                <input id={user + "Password"} type="text" placeholder='enter password' />
+
+            </form>
+
+            <br />
+            <form action="">
+                <label htmlFor={user + "Password"}> Enter User Skills</label>
+                <input id={user + "Password"} type="text" placeholder='enter skill' />
+
+            </form>
+            <br />
+            <form action="">
+
+                <input id={user + "terms"} type="checkbox" placeholder='enter Terms' />
+                <label htmlFor={user + "terms"}> Enter User terms </label>
+
+            </form>
+
+            <button> Submit </button>
+            <hr />
+
+        </>
+    )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 **06-09-2025**
 
 
