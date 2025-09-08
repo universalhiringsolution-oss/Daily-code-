@@ -7,6 +7,76 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+**08-09-2025**
+
+import { Fragment } from 'react'
+
+
+export default function App() {
+    return (
+        // <Fragment>
+
+        //     <h1> Fragment in React JS </h1>
+        //     <h1> Fragment in React JS </h1>
+
+
+        // </Fragment>
+
+        <div>
+            <Data />
+            <Data />
+            <Data />
+            <Data />
+            <Data />
+        </div>
+
+
+
+
+    )
+}
+
+
+function Data() {
+    return (
+
+        // <Fragment>
+
+        //     <h1> Fragment in React JS </h1>
+        //     <h1> Fragment in React JS </h1>
+
+
+        // </Fragment>
+
+        <div>
+
+<span> Hello <b>Submit </b></span>
+
+        </div>
+
+    )
+}
+
+
+
+
+
+
+
+
+
+
 **05-09-2025**
 
 
