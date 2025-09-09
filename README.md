@@ -18,6 +18,117 @@
 
 
 
+
+
+
+
+
+
+
+
+**09-09-2025**
+
+
+
+
+// UseToggle.jsx
+import { useState } from 'react'
+
+
+const useToggle = (defaultVal) => {
+    const [value, setValue] = useState(defaultVal);
+
+    function toggleValue(val) {
+        if (typeof val != 'boolean') {
+            console.log(val);  
+            setValue(!value)
+        } else {
+            setValue(val)
+        }
+    }
+    return [value, toggleValue]
+}
+
+
+export default useToggle;
+
+
+
+// /////////////////////////////////////
+
+
+
+
+
+
+
+import useToggle from "./UseToggle"
+
+
+export default function App() {
+
+    const [value, toggleValue] = useToggle(true);
+
+    const [data,setData]=useToggle(true);
+
+
+    return (
+        <>
+
+            <button onClick={toggleValue} >Toggle Heading </button>
+            <button onClick={()=>toggleValue(false)} >Hide Heading </button>
+            <button onClick={()=>toggleValue(true)} >Show Heading </button>
+
+
+            {
+                value ? <h1> Custom Hook in react</h1> : null
+            }
+
+<hr />
+
+<h1> Second heading </h1>
+
+            <button onClick={setData} >Toggle Heading </button>
+            <button onClick={()=>setData(false)} >Hide Heading </button>
+            <button onClick={()=>setData(true)} >Show Heading </button>
+
+            {
+                data ? <h1> Custom Hook in react</h1> : null
+            }
+
+
+
+
+
+        </>
+    )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **08-09-2025**
 
 import { Fragment } from 'react'
