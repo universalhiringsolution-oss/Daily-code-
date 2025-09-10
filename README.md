@@ -5,6 +5,136 @@
 
 
 
+**10-09-2025**
+
+
+
+
+
+
+import College from "./college"
+import { SubjectContext } from "./ContextData"
+import { useState } from "react"
+
+
+export default function App() {
+
+    const [subject, setSubject] = useState('English')
+
+    return (
+        <>
+            <h1 style={{ backgroundColor: 'yellow', padding: '100px', width: '1800px' }} > Context AP </h1>
+
+            <SubjectContext.Provider value={subject}>
+                <select Value={subject} onChange={(event) => setSubject(event.target.value)}>
+                    <option value="English">English</option>
+                    <option value="Maths">Maths</option>
+                    <option value="Science">Science</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Social Study">Social Study</option>
+                    <option value="PCMB">PCMB</option>
+
+                </select>
+                <button onClick={() => setSubject('')}>Clear Subject </button>
+
+                <College />
+
+            </SubjectContext.Provider>
+        </>
+    )
+}
+
+
+
+// import ClassComponent from "./ClassComponent"
+
+
+// export default function College() {
+//     return (
+//         <>
+//             <h1 style={{ backgroundColor: 'orange', padding: '70px' }}> College Component 
+//                   <ClassComponent />
+//                  </h1>
+          
+
+//         </>
+//     )
+// }
+
+
+// import Student from "./student";
+
+
+// export default function ClassComponent() {
+//     return (
+//         <>
+//             <h1 style={{ backgroundColor: 'Skyblue', padding: '40px' }}> ClassComponent Component 
+//                 <Student />
+//                  </h1>
+
+
+//         </>
+//     )
+// }
+
+
+// import Subject from "./Subject";
+
+
+// export default function Student() {
+//     return (
+
+//         <>
+//             <h1 style={{ backgroundColor: 'green', padding: '30px' }}> Student Component
+//                 <Subject />
+                
+//             </h1>
+
+//         </>
+//     )
+// }
+
+
+
+// import { SubjectContext } from './ContextData';
+// import { useContext } from 'react'
+
+// export default function Subject() {
+//     const subject = useContext(SubjectContext)
+//     return (
+//         <>
+//             <h1 style={{ backgroundColor: 'red', padding: '30px' }}> Subject Component  </h1>
+
+
+//                 <h2> Subject is : {subject}</h2>
+
+
+
+
+
+
+
+//         </>
+//     )
+// }
+
+
+
+// import { createContext } from "react";
+
+
+// export const SubjectContext=createContext('Maths')
+
+
+
+
+
+
+
+
+
+
+
 
 
 
