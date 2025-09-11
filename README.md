@@ -5,6 +5,51 @@
 
 
 
+
+
+
+
+
+
+
+
+**11-09-2025**
+
+
+import { BrowserRouter, Routes, Route, Link } from "react-router";
+export default function App() {
+
+    return (
+
+        <>
+            <BrowserRouter>
+
+                <Link to='/'>Home </Link>
+                <Link to='/About'>About </Link>
+                <Link to='/Contact'>Contact </Link>
+                <Link to='/Info'>Info </Link>
+
+                <Routes>
+                    <Route path='/' element={<h1>Home</h1>} />
+                    <Route path='/About' element={<h1>About</h1>} />
+                    <Route path='/Contact' element={<h1>Contact</h1>} />
+                    <Route path='/Info' element={<h1>Info</h1>} />
+                </Routes>
+
+            </BrowserRouter>
+
+        </>
+
+
+
+    )
+
+}
+
+
+
+
+
 **10-09-2025**
 
 
