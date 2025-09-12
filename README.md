@@ -3,7 +3,38 @@
 
 
 
+**12-09-2025**
 
+
+
+
+import { Routes, Route } from "react-router";
+import Login from "./login";
+import Info from "./info";
+import NavBar from "./NavBar";
+import Home from "./home";
+
+export function App() {
+    return (
+        <>
+
+<section>
+            <NavBar />
+
+</section>
+
+
+
+            <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/Login' element={<Login />} />
+                <Route path='/Info' element={<Info />} />
+            </Routes>
+
+
+        </>
+    )
+}
 
 
 
