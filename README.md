@@ -1,5 +1,152 @@
 # Daily-code-
 
+import NavBar from "./Navebar"
+import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
+import About from "./About";
+import Login from "./login";
+import Home from "./Home";
+
+export default function App() {
+
+    return (
+
+        <>
+
+            <NavBar />
+
+
+
+            <Link to='/'> Home</Link>
+            <Link to='/About'> About</Link>
+            <Link to='/Login'>Login</Link>
+
+            <Routes>
+
+                <Route path="/" element={<h1>Home</h1>}></Route>
+                <Route path="/About" element={<h1>About</h1>}></Route>
+                <Route path="/Login" element={<h1>Login</h1>}></Route>
+            </Routes>
+
+
+
+        </>
+
+
+    )
+
+}
+
+////
+
+import { Link } from 'react-router'
+import './header.css'
+
+export default function NavBar() {
+
+    return (
+        < >
+
+            <div className='header'>
+
+
+
+
+                <div>
+                    <Link className='Home' to={'/'} />  <h1> Logo </h1>
+
+                </div>
+
+                <ul>
+                    <li>
+                        <Link className='link' to='/Home' >Home</Link>
+                    </li>
+                    <li>
+                        <Link className='link' to='/Login' >Login</Link>
+                    </li>
+                    <li>
+                        <Link className='link' to='/About' >About</Link>
+                    </li>
+                </ul>
+
+
+
+
+            </div>
+
+
+        </>
+    )
+
+}
+
+/////
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(0, 185, 22);
+    padding: 10px;
+    width: 1500px;
+}
+
+
+.header ul {
+    display: flex;
+    list-style-type: none;
+    margin: auto;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.header ul li{
+padding:10px;
+
+}
+.header .link h2{
+    margin: 0;
+}
+
+.header link{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
