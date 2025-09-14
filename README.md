@@ -1,5 +1,180 @@
 # Daily-code-
 
+
+
+**14-09-2025**
+
+import { Navigate, BrowserRouter, Link, Routes, Route } from 'react-router-dom';
+import NavBar from "./Navebar"
+import About from "./About";
+import Login from "./login";
+import Home from "./Home";
+import PageNotFound from "./PageNotFound";
+import College from './College';
+import Student from './Student';
+import Department from './Department';
+import Details from './Details';
+
+export default function App() {
+
+    return (
+
+        <>
+
+            {/* <NavBar /> */}
+
+            <Routes>
+
+
+                <Route element={<NavBar />}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/user/About" element={<About />} />
+                    <Route path="/user/Login" element={<Login />} />
+
+                </Route>
+
+
+
+
+                <Route path='/user/College' element={<College />} >
+                    <Route path='Student' element={<Student />} />
+                    <Route path='Department' element={<Department />} />
+                    <Route path='Details' element={<Details />} />
+
+                </Route>
+
+                {/* <Route path='/*' element={ <PageNotFound />} ></Route> */}
+                <Route path='/*' element={<Navigate to='/' />} ></Route>
+
+            </Routes >
+
+
+
+        </>
+
+
+    )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**14-09-2025**
+
+import { Navigate, BrowserRouter, Link, Routes, Route } from 'react-router-dom';
+import NavBar from "./Navebar"
+import About from "./About";
+import Login from "./login";
+import Home from "./Home";
+import PageNotFound from "./PageNotFound";
+import College from './College';
+import Student from './Student';
+import Department from './Department';
+import Details from './Details';
+
+export default function App() {
+
+    return (
+
+        <>
+
+            <NavBar />
+
+
+            <Routes>
+
+                <Route path="/" element={<Home />} />
+                <Route path="/About" element={<About />} />
+                <Route path="/Login" element={<Login />} />
+
+                <Route path='College' element={<College />} >
+
+                    {/* <Route path='College' element={<College />} /> */}
+                    <Route path='Student' element={<Student />} />
+                    <Route path='Department' element={<Department />} />
+                    <Route path='Details' element={<Details />} />
+
+                </Route>
+
+                {/* <Route path='/*' element={ <PageNotFound />} ></Route> */}
+                <Route path='/*' element={<Navigate to='/' />} ></Route>
+
+            </Routes >
+
+
+
+        </>
+
+
+    )
+
+}
+
+////////////////
+
+import { Link, NavLink, Outlet } from 'react-router';
+
+
+export default function College() {
+
+
+    return (
+        <>
+            <h1 style={{textAlign:'center', marginTop:'50px', marginBottom:'70px', backgroundOrigin:'red'}}> College  Page</h1>
+
+            <div className='college' style={{ textAlign: 'center' }}>
+                <NavLink className='link' to='/Student'> Student </NavLink>
+                <NavLink className='link' to='/Department'> Department  </NavLink>
+                <NavLink className='link' to='/Details'> College Details </NavLink>
+                <Outlet />
+
+                 <h1 style={{textAlign:'center', marginTop:'0px'}} > Student Page</h1>
+            </div>
+
+
+
+        </>
+
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+**14-09-2025**
+
+
+
+
+
+
+
+
 import NavBar from "./Navebar"
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 import About from "./About";
