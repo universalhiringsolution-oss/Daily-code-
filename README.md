@@ -2,6 +2,171 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**15-09-2025**
+
+
+
+import { Navigate, BrowserRouter, Link, Routes, Route } from 'react-router-dom';
+import NavBar from "./Navebar"
+import About from "./About";
+import Login from "./login";
+import Home from "./Home";
+import PageNotFound from "./PageNotFound";
+import College from './College';
+import Student from './Student';
+import Department from './Department';
+import Details from './Details';
+import Users from './users';
+import UserDetails from './UserDetails';
+
+
+export default function App() {
+
+    return (
+
+        <>
+
+            {/* <NavBar /> */}
+
+            <Routes>
+
+
+                <Route element={<NavBar />}>
+                    <Route path='/users/:id' element={<UserDetails />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/user/About" element={<About />} />
+                    <Route path="/user/Login" element={<Login />} />
+                    <Route path="/Users" element={<Users />} />
+
+                </Route>
+
+
+
+
+                <Route path='/user/College' element={<College />} >
+                    <Route path='Student' element={<Student />} />
+                    <Route path='Department' element={<Department />} />
+                    <Route path='Details' element={<Details />} />
+
+                </Route>
+
+                {/* <Route path='/*' element={ <PageNotFound />} ></Route> */}
+                <Route path='/*' element={<Navigate to='/' />} ></Route>
+
+            </Routes >
+
+
+
+        </>
+
+
+    )
+
+}
+
+import { Link } from "react-router"
+
+export default function Users() {
+
+    const userData = [
+        { id: 1, name: 'Anil' },
+        { id: 2, name: 'bare' },
+        { id: 3, name: 'cart' },
+        { id: 4, name: 'default' },
+        { id: 5, name: 'elise' },
+        { id: 6, name: 'fex' },
+
+    ]
+
+    return (
+        <>
+
+            <div style={{ marginLeft: 20 }} >
+                <h1> Users  Page</h1>
+                {
+                    userData.map((item) => (
+                        <div>
+                            <h4> <Link to={'/users/' + item.id}> {item.name}  </Link>   </h4>
+                        </div>
+                    ))}
+            </div>
+
+
+        </>
+
+    )
+}
+
+
+import { Link, useParams } from 'react-router'
+
+
+export default function UserDetails() {
+    const paramsData = useParams();
+    console.log(paramsData.id);
+
+    return (
+
+        <>
+            <div style={{ marginLeft: 20 }} />
+            <h1> Users  Page</h1>
+            <h2>User id is : {paramsData.id} </h2>
+            <h3> <Link to='/Users'>Back</Link></h3>
+
+
+
+
+
+
+
+
+
+
+        </>
+
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **14-09-2025**
 
 import { Navigate, BrowserRouter, Link, Routes, Route } from 'react-router-dom';
