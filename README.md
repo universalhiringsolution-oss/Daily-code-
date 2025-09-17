@@ -2,6 +2,233 @@
 
 
 
+
+
+**17-09-2025**
+
+
+
+import { Navigate, BrowserRouter, Link, Routes, Route } from 'react-router-dom';
+import NavBar from "./Navebar"
+import About from "./About";
+import Login from "./login";
+import Home from "./Home";
+import PageNotFound from "./PageNotFound";
+import College from './College';
+import Student from './Student';
+import Department from './Department';
+import Details from './Details';
+import Users from './users';
+import UserDetails from './UserDetails';
+import UserList from './UserList';
+
+
+export default function App() {
+
+    return (
+
+        <>
+
+            {/* <NavBar /> */}
+
+            <Routes>
+
+
+                <Route element={<NavBar />}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/users/edit" element={<UserList />} />
+
+                    {/* <Route path='/users/:id' element={<UserDetails />} /> */}
+                    <Route path='/users/:id/:name?' element={<UserDetails />} />
+
+                    <Route path="/user/About" element={<About />} />
+                    <Route path="/user/Login" element={<Login />} />
+                    <Route path="/Users" element={<Users />} />
+
+                </Route>
+
+
+
+
+                <Route path='/user/College' element={<College />} >
+                    <Route path='Student' element={<Student />} />
+                    <Route path='Department' element={<Department />} />
+                    <Route path='Details' element={<Details />} />
+
+                </Route>
+
+                {/* <Route path='/*' element={ <PageNotFound />} ></Route> */}
+                <Route path='/*' element={<Navigate to='/' />} ></Route>
+
+            </Routes >
+
+
+
+        </>
+
+
+    )
+
+}
+
+
+
+
+
+
+
+
+import { NavLink, Outlet } from 'react-router'
+import './header.css'
+
+export default function NavBar() {
+
+    return (
+        < >
+            <div>
+
+                <div className='header' >
+
+                    <div>
+                        <NavLink className='Home' to={'/'} />  <h1> Logo </h1>
+
+                    </div>
+
+                    <ul>
+                        <li>
+                            <NavLink className={({isActive})=> isActive?'custom-active':'link' } to='/Home' >Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({isActive})=> isActive?'custom-active':'link' }  to='/user/Login' >Login</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className='link' to='/user/About' >About</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className='link' to='/user/College' >College</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className='link' to='/Users' >Users</NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink className='link' to='/Users/List' >List </NavLink>
+                        </li>
+
+
+                    </ul>
+
+
+
+
+                </div>
+
+            </div>
+            <Outlet />
+
+        </>
+    )
+
+}
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(91, 16, 184);
+    padding: 10px;
+    width: 2300px;
+
+}
+
+/*  width: '2300px', height:'890px' */
+
+.header ul {
+    display: flex;
+    list-style-type: none;
+    margin: auto;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.header ul li {
+    padding: 10px;
+
+}
+
+.header .link h2 {
+    margin: 0;
+}
+
+.header .link {
+    text-decoration: none;
+    font-size: 20px;
+
+}
+
+
+.college .link {
+    text-decoration: none;
+    font-size: 20px;
+    margin: 10px;
+
+}
+
+
+.active{
+    font-weight: 900;
+    color: rgb(255, 0, 0);
+    
+}
+
+.custom-active{
+    font-weight: 700;
+    color: rgb(111, 0, 255);
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **16-09-2025**
 
 import { Navigate, BrowserRouter, Link, Routes, Route } from 'react-router-dom';
