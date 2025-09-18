@@ -1,6 +1,51 @@
 # Daily-code-
 
 
+**18-09-2025**
+
+
+
+
+
+
+
+
+
+
+
+
+**18-09-2025**
+
+
+
+export default function App() {
+    return (
+        <>
+
+
+            <h2 className="bg-red-700 text-3xl border-green-600 border-2"> Tailwindcss stepup</h2>
+            <h1 className="max-w-sm mx-auto mt-15 bg-black border border-black-700 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                Hello world!
+            </h1>
+
+        </>
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
