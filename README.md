@@ -1,7 +1,106 @@
 # Daily-code-
 
 
-**18-09-2025**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**19-09-2025**
+
+
+import { useEffect, useState } from "react";
+import './App.css'
+
+export default function App() {
+    const [userData, setUserData] = useState([]);
+
+    useEffect(() => {
+        getUsersData();
+    }, [])
+
+    async function getUsersData() {
+        const url = 'https://dummyjson.com/users';
+        let response = await fetch(url);
+        response = await response.json()
+
+        setUserData(response.users)
+
+    }
+
+
+
+    console.log(userData);
+
+    return (
+        <>
+
+
+            <h1> Fetch Data from API </h1>
+            <ul className="user-list">
+
+                <li style={{ color: 'red', fontSize: '25px', background: "yellow", }}> First Name </li>
+                <li style={{ color: 'red', fontSize: '25px', background: "yellow", }}> Last Name</li>
+                <li style={{ color: 'red', fontSize: '25px', background: "yellow", }}> Age </li>
+                <li style={{ color: 'red', fontSize: '25px', background: "yellow", }}> Email </li>
+                <li style={{ color: 'red', fontSize: '25px', background: "yellow", }}> Phone </li>
+
+            </ul>
+
+            {
+                userData && userData.map((user) => (
+                    <ul className="user-list">
+
+                        <li> {user.firstName}</li>
+                        <li> {user.lastName}</li>
+                        <li> {user.age}</li>
+                        <li> {user.email}</li>
+                        <li> {user.phone}</li>
+                    </ul>
+
+
+                ))
+            }
+
+        </>
+    )
+}
+
+
+
+.user-list{
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  margin: 0px;
+  padding: 10px;
+  width: 1500px;
+  list-style: none;
+
+}
+
+
+
+
+
+
+
 
 
 
