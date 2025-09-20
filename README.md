@@ -18,6 +18,79 @@
 
 
 
+**20-09-2025**
+
+
+import { useEffect, useState } from "react";
+import './App.css'
+
+
+export default function App() {
+
+    const [userData, setUserData] = useState([])
+    const [loading, setLoading] = useState(false)
+    useEffect(() => {
+        setLoading(true);
+        getUserData();
+    }, [])
+
+    const getUserData = async () => {
+        const url = "http://localhost:3000/users";
+        let response = await fetch(url);
+        response = await response.json();
+        console.log(response);
+        setUserData(response);
+        setLoading(false)
+
+    }
+    return (
+        <>
+
+            <h1> Integrating Json Server and Loader</h1>
+            <ul className="user-list">
+
+                <li>Name</li>
+                <li>Age</li>
+                <li>Email</li>
+                <li>Id</li>
+            </ul>
+
+
+
+
+            {
+                !loading ?
+                    userData.map((user) => (
+
+                        <ul key={user.name} className="user-list">
+
+                            <li>{user.name}</li>
+                            <li>{user.age}</li>
+                            <li>{user.email}</li>
+                            <li>{user.id}</li>
+                        </ul>
+                    ))
+                    : <h1> Data Loading..... </h1>
+            }
+
+        </>
+    )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
