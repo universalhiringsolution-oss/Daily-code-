@@ -4,8 +4,55 @@
 
 
 
+**22-09-2025**
 
 
+
+import { NavLink, Route, Routes } from 'react-router'
+import './App.css'
+import UserAdd from './UserAdd'
+import UserList from './UserList'
+export default function App() {
+
+
+    return (
+        <>
+
+
+            <ul className='nav-list'>
+                <li> <NavLink to='/'> List </NavLink> </li>
+                <li> <NavLink to='/add'> Add </NavLink> </li>
+            </ul>
+
+            <h1> Make Pages for add user list</h1>
+
+
+            <Routes>
+                <Route path='/' element={<UserList />} />
+            </Routes>
+        </>
+    )
+
+}
+
+
+import UserList from "./UserList";
+
+
+
+
+export default function UserAdd() {
+    return (
+        <>
+            <h1>Make Pages for add user list</h1>
+
+            <UserList />
+
+        </>
+
+
+    )
+}
 
 
 
