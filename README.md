@@ -1,6 +1,95 @@
 # Daily-code-
 
 
+**23-09-2025**
+
+
+
+
+
+import { NavLink, Route, Routes } from 'react-router'
+import './App.css'
+import UserAdd from './UserAdd'
+import UserList from './UserList'
+export default function App() {
+
+
+    return (
+        <>
+
+
+            <ul className='nav-list'>
+                <li> <NavLink to='/'> List </NavLink> </li>
+                <li> <NavLink to='/add'> Add </NavLink> </li>
+            </ul>
+
+            <h1> Make Pages for add user list</h1>
+            <UserList />
+
+            <Routes>
+                <Route path='/' element={<UserAdd />} />
+            </Routes>
+        </>
+    )
+
+}
+
+
+import { useState } from "react";
+
+
+
+
+
+export default function UserAdd() {
+    const [name, setName] = useState('');
+    const [age, setAge] = useState('');
+    const [email, setEmail] = useState('');
+
+
+    const createUser =async () => {
+        console.log(name, age, email);
+        const url='http://localhost:3000/users';
+        let response = await fetch(url,{
+            method:'POST', 
+            body:JSON.stringify ({name,age,email}),
+            headers:{}
+        });
+        response = await response.json();
+        console.log(response);
+        alert("user added successfully")
+    }
+
+    return (
+        <>
+            <div style={{ textAlign: "center" }}>
+                <input type="text" onChange={(event) => setName(event.target.value)} placeholder="enter name" />
+                <br /><br />
+                <input type="text" onChange={(event) => setAge(event.target.value)} placeholder="enter age" />
+                <br /><br />
+                <input type="text" onChange={(event) => setEmail(event.target.value)} placeholder="enter email" />
+                <br /><br />
+                <button onClick={createUser} >Add new user</button>
+
+
+
+
+
+            </div>
+
+
+        </>
+
+
+    )
+}
+
+
+
+
+
+
+
 
 
 
