@@ -1,6 +1,98 @@
 # Daily-code-
 
 
+
+**24-09-2025**
+
+
+
+import { useEffect, useState } from "react";
+
+
+export default function UserList() {
+    const url = "http://localhost:3000/users";
+    const [userData, setUserData] = useState([])
+    const [loading, setLoading] = useState(false)
+    useEffect(() => {
+        setLoading(true);
+        getUserData();
+    }, [])
+
+    const getUserData = async () => {
+
+        let response = await fetch(url);
+        response = await response.json();
+        console.log(response);
+        setUserData(response);
+        setLoading(false)
+
+    }
+    const deleteUser = async(id) => {
+        let response = await fetch(url+'/'+id,{
+            method:'DELETE'
+        })
+        response = await response.json();
+        if(response){ 
+            alert('user deleted successfully')
+            getUserData();
+        }
+    }
+
+
+
+
+
+
+
+
+    return (
+        <>
+
+            <h1> Make Pages for add user list</h1>
+            <ul className="user-list">
+
+                <li>Name</li>
+                <li>Age</li>
+                <li>Email</li>
+                <li>Id</li>
+                <li>Action</li>
+            </ul>
+
+
+
+
+            {
+                !loading ?
+                    userData.map((user) => (
+
+                        <ul key={user.name} className="user-list">
+
+                            <li>{user.name}</li>
+                            <li>{user.age}</li>
+                            <li>{user.email}</li>
+                            <li>{user.id}</li>
+                            <li><button onClick={() => deleteUser(user.id)}>Delete</button></li>
+                        </ul>
+                    ))
+                    : <h1> Data Loading..... </h1>
+            }
+
+        </>
+    )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 **23-09-2025**
 
 
