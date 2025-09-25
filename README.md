@@ -2,6 +2,105 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**25-09-2025**
+
+
+
+import { NavLink, Route, Routes } from 'react-router'
+import './App.css'
+import UserAdd from './UserAdd'
+import UserList from './UserList'
+import UserEdit from './UserEdit'
+// import editUser from 'UserList'
+
+export default function App() {
+
+
+    return (
+        <>
+
+
+            <ul className='nav-list'>
+                <li> <NavLink to='/'> List </NavLink> </li>
+                <li> <NavLink to='/add'> Add </NavLink> </li>
+            </ul>
+
+            {/* <h1> Make Pages for add user list</h1> */}
+            <UserList />
+
+            <Routes>
+                <Route path='/' element={<UserList />} />
+                <Route path='/add' element={<UserAdd />} />
+                <Route path='/edit/:id' element={<UserEdit />} />
+         
+            </Routes>
+        </>
+    )
+
+}
+
+
+
+export default function UserEdit() {
+    return (
+        <>
+
+        <h1> Edit User Detail's </h1>
+            <div style={{ textAlign: 'center' }}>
+
+                <h1> Edit User Details</h1>
+                <input type="text" placeholder="user name" />
+                <br /><br />
+                <input type="text" placeholder="user email" />
+                <br /><br />
+                <input type="text" placeholder="user age" />
+                <br /><br />
+                <button> Update User </button>
+
+            </div>
+
+
+        </>
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **24-09-2025**
 
 
