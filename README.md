@@ -3,6 +3,83 @@
 
 
 
+**26-09-2025**
+
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from "react-router";
+
+
+
+export default function UserEdit() {
+
+    const { id } = useParams();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [age, setAge] = useState('');
+    const url = "http://localhost:3000/users/" + id;
+    const navigate = useNavigate('');
+
+    useEffect(() => {
+        getUserData();
+    }, [])
+    const getUserData = async () => {
+
+        let response = await fetch(url);
+        response = await response.json();
+
+        console.log(url);
+        setName(response.name);
+        setName(response.age);
+        setName(response.email);
+
+    }
+
+    const updateUserData = async () => {
+        console.log(name, email, age);
+        let response = await fetch(url, {
+            method: 'PUT',
+            body: JSON.stringify({ name, age, email }),
+        });
+        response = await response.json();
+        console.log(response);
+        if(response){
+            alert('user data updated successfully');
+            navigate('/')
+        }
+    }
+
+
+    return (
+        <>
+
+            <h1> Edit User Detail's </h1>''
+            <div style={{ textAlign: 'center' }}>
+
+                <h1> Edit User Details</h1>
+                <input type="text" value={name} onChange={(event) => setName(event.target.value)} placeholder="user name" />
+                <br /><br />
+                <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="user email" />
+                <br /><br />
+                <input type="text" value={age} onChange={(event) => setAge(event.target.value)} placeholder="user age" />
+                <br /><br />
+                <button onClick={updateUserData} > Update User </button>
+
+            </div>
+
+
+        </>
+    )
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
