@@ -3,6 +3,79 @@
 
 
 
+
+
+**27-09-2025**
+
+
+
+import { useState } from 'react'
+import './App.css'
+
+export default function App() {
+
+    const [name, setname] = useState('');
+    const [nameErr, setNameErr] = useState();
+
+    const [password, setPassword] = useState('');
+    const [passErr, setPassErr] = useState();
+
+
+    const handleName = (event) => {
+        console.log(event.target.value);
+        if (event.target.value.length > 5) {
+            setNameErr("kindly enter valid username. only 5 charactor are allowed")
+        } else {
+            setNameErr("")
+        }
+    }
+
+
+
+    const handlePassword = (event) => {
+        let regex = /^[A-z0-9]+$/i;
+        console.log(event.target.value);
+        if (regex.test(event.target.value)) {
+            setPassErr('')
+        } else {
+            setPassErr("kindly enter valid username. only 5 charactor are allowed")
+        }
+    }
+
+    return (
+        <>
+
+            <input className={nameErr ? 'error' : ''} type="text" placeholder='enter name' onClick={handleName} />
+            <span className='red-color' >{nameErr && nameErr}</span>
+            <br /> <br />
+            <input className={passErr ? 'error' : ''} type="text" placeholder='enter Password' onChange={handlePassword} />
+            <span>{passErr && passErr}</span>
+            <br /> <br />
+            <button disable={passErr || nameErr}> Login </button>
+
+        </>
+    )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **26-09-2025**
 
 import { useEffect, useState } from 'react';
