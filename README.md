@@ -5,6 +5,98 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+**29-09-2025**
+
+
+import { useActionState } from 'react';
+import './App.css'
+
+export default function App() {
+
+    const handleLogin = async (prevData, formData) => {
+        let name = formData.get('name')
+        let password = formData.get("password")
+        let regex = /^[A-Z0-9]+$/i;
+
+        if (!name || name.length > 5) {
+            return { error: 'Name cannot me Empty or Name Should not contain more then 5 characters', name, password }
+        } else if (!regex.test(password)) {
+            return { error: 'password should contain numbers and alphabets', name, password }
+        } else {''
+            return { message: 'Login Success' }
+        }
+
+
+    }
+
+
+    const [data, action, pending] = useActionState(handleLogin);
+    console.log(data)
+    return (
+        <>
+
+            <div>
+                <h1>Validation with useActionState in React </h1>
+                {
+                    data?.error && <span style={{ color: 'green' }} > {data?.message} </span>
+                }
+                {
+                    data?.message && <span style={{ color: 'red' }} > {data?.error} </span>
+                }
+
+                <form action={action} method='POST'>
+
+                    <input defaultValue={data?.name} type="text" name='name' placeholder='enter user nam' />
+                    <br /><br />
+                    <input type="text" defaultValue={data?.password} name='password' placeholder='enter user name' />
+                    <br /><br />
+
+                    <button>Login</button>
+
+                </form>
+
+            </div>
+
+        </>
+    );
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **27-09-2025**
 
 
