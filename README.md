@@ -18,6 +18,61 @@
 **29-09-2025**
 
 
+
+
+
+
+import React, { lazy, Suspense, useState } from 'react';
+// import User from './User';
+const User = lazy(() => import('./User'));
+
+
+export default function App() {
+
+    const [load, setLoad] = useState(false)
+
+    return (
+        <>
+            <User />
+            <h1> Lazy Loading </h1>
+            {
+                load ? <Suspense fallback={<h3>Loading...</h3>}> <User />  </Suspense> : null
+            }
+            <button onClick={() => setLoad(true)} > Load User </button>
+
+        </>
+    )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////
 import { useReducer } from "react"
 
 
