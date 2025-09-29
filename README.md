@@ -18,6 +18,71 @@
 **29-09-2025**
 
 
+import { useReducer } from "react"
+
+
+const emptyData = {
+
+    name: "",
+    password: "",
+    age: "",
+    email: "",
+    address: "",
+
+}
+
+const reducer = (data, action) => {
+    return { ...data, [action.type]: action.val };
+}
+
+
+
+export default function App() {
+    const [state, dispatch] = useReducer(reducer, emptyData)
+    console.log(state);
+
+    return (
+        <>
+            <h1> use Reducer </h1>
+            <input type="text" onChange={(event) => dispatch({ val: event.target.value, type: 'name' })} placeholder='enter name' />
+            <br /><br />
+            <input type="text" onChange={(event) => dispatch({ val: event.target.value, type: 'password' })} placeholder='enter password' />
+            <br /><br />
+            <input type="text" onChange={(event) => dispatch({ val: event.target.value, type: 'age' })} placeholder='enter age' />
+            <br /><br />
+            <input type="text" onChange={(event) => dispatch({ val: event.target.value, type: 'email' })} placeholder='enter email' />
+            <br /><br />
+            <input type="text" onChange={(event) => dispatch({ val: event.target.value, type: 'address' })} placeholder='enter address' />
+            <br /><br />
+
+            <ul>
+                <li>Name:{state.name}</li>
+                <li>password:{state.password}</li>
+                <li>age:{state.age}</li>
+                <li>email:{state.email}</li>
+                <li>address:{state.address}</li>
+            </ul>
+
+            <button onClick={()=>console.log(state)} >Add Details</button>
+            
+        </>
+    )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////
+
 import { useActionState } from 'react';
 import './App.css'
 
