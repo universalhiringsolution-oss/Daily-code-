@@ -12,6 +12,50 @@
 
 
 
+**30-09-2025**
+
+import React, { Suspense,use } from 'react';
+
+
+const fetchData = () => fetch('http://localhost:3000/users').then((response) => response.json());
+
+const userResource = fetchData();
+export default function App() {
+
+    return (
+        <>
+            <h1>use API in React JS </h1>
+            <Suspense fallback={<h2>Loading...</h2>} >
+                <Users userResource={userResource} />
+            </Suspense>
+        </>
+
+
+    )
+}
+
+
+const Users = ({userResource}) => {
+    const userData = use(userResource);
+
+    console.log(userData);
+
+    return (
+
+        <>
+            <h1> Users List </h1>
+            {userData?.Users?.map((user) => (
+                <h2 key={user.id}>{user.firstName} </h2>
+            ))}
+        </>
+
+
+    )
+}
+
+
+
+
 
 
 
